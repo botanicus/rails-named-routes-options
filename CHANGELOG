@@ -1,0 +1,5 @@
+= Version 0.0.1
+  * NamedRoutesOptions mixin
+  * The mixin is automatically included to the ActionMailer::Base
+  * The mixin is automatically included to the ActionController::Base
+  * Added basic README

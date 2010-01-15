@@ -1,0 +1,13 @@
+h1. About
+
+This Rails plugin adds @default_named_routes_options@ to the controllers and mailers. It comes handy for example when you are working on mailers. You have to specify the whole URI in your links, because otherwise these links obviously can't work in these emails. To ensure this works, you have to specify a host via @default_url_options@ method and then you need to specify @only_path: false@ for each link in your mailer views. This is pretty annoying and of course when you forget about it, your clients won't be very happy.
+
+h1. Usage
+
+<pre>
+# this comes from Rails itself
+ActionMailer::Base.default_url_options[:host] = "http://example.com"
+
+# and this from the plugin
+ActionMailer::Base.default_named_routes_options[:only_path] = false
+</pre>
