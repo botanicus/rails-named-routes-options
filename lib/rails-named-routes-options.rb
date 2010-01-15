@@ -24,7 +24,7 @@ module NamedRoutesOptions
     @default_named_routes_options ||= Hash.new
   end
 
-  def self.inherited(mailer)
+  def self.extended(mailer)
     super(mailer)
     mailer.class_eval do
       self.routes_names.each do |route|
@@ -41,5 +41,5 @@ module NamedRoutesOptions
   end
 end
 
-ActionMailer::Base.send(:include, NamedRoutesOptions) if defined?(ActionMailer)
-ActionController::Base.send(:include, NamedRoutesOptions) if defined?(ActionController)
+ActionMailer::Base.extend(NamedRoutesOptions) if defined?(ActionMailer)
+ActionController::Base.extend(NamedRoutesOptions) if defined?(ActionController)
